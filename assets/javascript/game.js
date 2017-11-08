@@ -2,7 +2,7 @@
 
 var alphaEl = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-        't', 'u', 'v', 'w', 'x', 'y', 'z']]
+        't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 var wordList = [
   'tokyo', 'mumbai', 'bakersfield', 'oakland', 'osaka',
@@ -12,25 +12,32 @@ var wordList = [
   'kabul', 'shanghai',  'santiago'
   ];
 
-//Get key strokes
+//random word
+var activeWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-  document.getElementById("change").onkeyup = function() {myFunction()};
+document.getElementById("hangman").innerHTML = activeWord;
 
-      function myfunction(){
+//Display spaces subject to word
 
-      }
+//Get key stroke
 
- //Add letter to HTML; Already guessed
+ function guessLetter(){
+     var letterGuessed = document.getElementById("letter").value;
+     document.getElementById("hangman").innerHTML = letterGuessed;
+      };
 
+ //If letter is in the word; if letter is not in word
 
- //Add  letter to HTML; Hangman
+function checkLetter() { 
+var boolean = activeWord.includes(letterGuessed);
+document.getElementById("hangman2").innerHTML = boolean;
+};
+ //If losses
 
- //Number of guesses
+ //If wins
 
 
  //Number of wins
 
 //Number of losses
 
-
- //Play sound and refresh
