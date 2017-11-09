@@ -4,6 +4,7 @@ var alphaEl = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+//word list
 var wordList = [
   'tokyo', 'mumbai', 'bakersfield', 'oakland', 'osaka',
   'london', 'auckland', 'kobe', 'kyoto', 'san francisco',
@@ -12,17 +13,58 @@ var wordList = [
   'kabul', 'shanghai',  'santiago'
   ];
 
-//random word
+//choose random word for each game
 var activeWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-document.getElementById("hangman").innerHTML = activeWord;
+//info that will need to be temporarily stored
+var count = 0;
+var guessLetter = [];
+var s;
+
+//function to run when filling the underscore
+function gamePlay() {
+	for (var i = 0; i < wordList.length; i++) {
+		guessLetter[i] = "_";
+	}
+	s = guessLetter.join(" ");
+	document.getElementById("answer").innerHTML = s;
+};
+
+//function to get the letter pressed by User
+
+function keyedLetter() {
+	var letterGuessed = document.getElementById("letter").value;
+	if (keyedLetter.length > 0) {
+		for (var i = 0; i < activeWord.length; i++) {
+			activeWord[i]
+		}
+	}
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Display spaces subject to word
 
 //Get key stroke
 
  function guessLetter(){
-     var letterGuessed = document.getElementById("letter").value;
+     
      document.getElementById("hangman").innerHTML = letterGuessed;
       };
 
@@ -40,4 +82,4 @@ document.getElementById("hangman2").innerHTML = boolean;
  //Number of wins
 
 //Number of losses
-
+document.getElementById("hangman").innerHTML = activeWord;
