@@ -8,21 +8,19 @@
 </head>
 <body>
 
-<p>Press any key to get started!</p>
-<input type="text" id="letter" onkeyup="guessLetter()">
-
-<div id="hangman" style="visibility:hidden"></div>
-
-<p>Wins:</p>
-<p>Losses:</p>
-
-<p>Number of guesses remaining:</p>
-
-<p>Letters already guessed:</p>
-
-
+	<div class="container">
+		<header>
+			<h1>Around the World With Hangman!</h1>
+		<!-- Add Globe Animation -->
+			<h2 id="letter">Press any key to get started!</h2>
+		</header>
+				<div class="underscore">_ _ _ _</div>
+				<div id="wins">wins: </div>
+				<div id="loses">losses: </div>
+	</div>
 
 </body>
 
-<script src="assets/javascript/game.js"></script>
+	<script src="assets/javascript/game.js"></script>
+
 </html>

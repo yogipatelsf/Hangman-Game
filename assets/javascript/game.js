@@ -1,10 +1,63 @@
 
 
-var alphaEl = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-        't', 'u', 'v', 'w', 'x', 'y', 'z']
+// var alphaEl = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+//         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+//         't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-//word list
+// //word list
+// var wordList = [
+//   'tokyo', 'mumbai', 'bakersfield', 'oakland', 'osaka',
+//   'london', 'auckland', 'kobe', 'kyoto', 'san francisco',
+//   'los angeles', 'paris', 'hong kong', 'new delhi', 'new york', 'lusaka',
+//    'chicago', 'cape town', 'rome', 'moscow', 'cairo',
+//   'kabul', 'shanghai',  'santiago'
+//   ];
+
+// //choose random word for each game
+// var activeWord = wordList[Math.floor(Math.random() * wordList.length)];
+
+// //info that will need to be temporarily stored
+// var count = 0;
+// var guessLetter = [];
+// var fillBlank;
+
+//function to run when filling the underscore
+// function gamePlay() {
+// 	for (var i = 0; i < wordList.length; i++) {
+// 		guessLetter[i] = "_";
+// 	}
+// 	s = guessLetter.join(" ");
+// 	document.getElementById("answer").innerHTML = fillBlank;
+// };
+
+// //function to get the letter pressed by User
+
+// function keyedLetter() {
+// 	var letterGuessed = document.getElementById("letter").value;
+// 	if (keyedLetter.length > 0) { //define a guess has been made
+// 		for (var i = 0; i < activeWord.length; i++) {
+// 			if (activeWord[i] === letter) {// must be exact match
+// 				guessLetter[i] = letterGuessed; // give it assigned value
+// 				}
+// 			}
+
+// 			//define how many guess user has
+// 			count++;
+// 			document.getElementById("remain").innerHTML = "Number of guesses remaining: " + count;
+// 			document.getElementById("used").innerHTML = guessLetter.join(" ");
+// 		}
+
+// 		//state how many attempts user gets
+
+// 		if(count>12) {
+// 			document.getElementById("end").innerHTML = "Game over!";
+// 			location.reload();
+// 		}
+// 	}
+
+
+
+// Create a Array of Words
 var wordList = [
   'tokyo', 'mumbai', 'bakersfield', 'oakland', 'osaka',
   'london', 'auckland', 'kobe', 'kyoto', 'san francisco',
@@ -13,73 +66,28 @@ var wordList = [
   'kabul', 'shanghai',  'santiago'
   ];
 
-//choose random word for each game
+// Choose Word Randomly
 var activeWord = wordList[Math.floor(Math.random() * wordList.length)];
+// console.log(activeWord);
 
-//info that will need to be temporarily stored
-var count = 0;
-var guessLetter = [];
-var s;
-
-//function to run when filling the underscore
-function gamePlay() {
-	for (var i = 0; i < wordList.length; i++) {
-		guessLetter[i] = "_";
+// Create underscore based on number of words
+var underScores = [];
+function newGame() {
+	for (var i = 0; i < activeWord.length; i++) {
+		underScores.push("_");
 	}
-	s = guessLetter.join(" ");
-	document.getElementById("answer").innerHTML = s;
-};
+return underScores;
+}
+console.log(newGame());
 
-//function to get the letter pressed by User
+// Get users guess
+document.addEventListener('keypress', (event) => {
+console.log(event);
+});
 
-function keyedLetter() {
-	var letterGuessed = document.getElementById("letter").value;
-	if (keyedLetter.length > 0) {
-		for (var i = 0; i < activeWord.length; i++) {
-			activeWord[i]
-		}
-	}
-
-};
+// Check if guess is right
+// if right put to right list
+//if wong put to wrong list
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Display spaces subject to word
-
-//Get key stroke
-
- function guessLetter(){
-     
-     document.getElementById("hangman").innerHTML = letterGuessed;
-      };
-
- //If letter is in the word; if letter is not in word
-
-function checkLetter() { 
-var boolean = activeWord.includes(letterGuessed);
-document.getElementById("hangman2").innerHTML = boolean;
-};
- //If losses
-
- //If wins
-
-
- //Number of wins
-
-//Number of losses
-document.getElementById("hangman").innerHTML = activeWord;
