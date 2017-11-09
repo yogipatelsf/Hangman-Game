@@ -80,9 +80,11 @@ return underScores;
 }
 console.log(newGame());
 
-// Get users guess
-document.addEventListener('keypress', (event) => {
-console.log(event);
+// Get users guess; https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
+document.addEventListener('keypress', function(event) {
+	// var keycode = event.keyCode;
+	var letter = String.fromCharCode(event.keyCode);
+	console.log(letter);
 });
 
 // Check if guess is right
