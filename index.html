@@ -7,17 +7,25 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-
 	<div class="container">
 		<header>
 			<h1>Around the World With Hangman!</h1>
 		<!-- Add Globe Animation -->
-			<h2 id="letter">Press any key to get started!</h2>
+			<h2>Press any key to get started!</h2>
 		</header>
-				<div class="underscore">_ _ _ _</div>
-				<div id="wins">wins: </div>
-				<div id="loses">losses: </div>
+		<div class="underscore"></div>
+		<p>Correct Letters</p>
+		<div class="rightLetters"></div>
+		<p>Incorrect Letters</p>
+		<div class="wrongLetters"></div>
+
+        <p>Wins:</p> <span id="wins"></span>
+        <p>Losses:</p> <span id="losses"></span>
+     
+    </div>
 	</div>
+
+<button type="button" class="btn btn-primary" onclick="message()">Continue Game</button>
 
 </body>
 
