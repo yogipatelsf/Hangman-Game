@@ -2,8 +2,7 @@
 
 // Create a Array of Words
 var wordList = [
-  'tokyo', 'mumbai', 'bakersfield', 'oakland', 'osaka',
-  'london', 'auckland', 'kobe', 'kyoto', 'san francisco',
+  'tokyo', 'mumbai', 'bakersfield', 'oakland', 'osaka','london', 'auckland', 'kobe', 'kyoto', 'san francisco',
   'los angeles', 'paris', 'hong kong', 'new delhi', 'new york', 'lusaka',
    'chicago', 'cape town', 'rome', 'moscow', 'cairo',
   'kabul', 'shanghai',  'santiago'
@@ -31,45 +30,50 @@ var newGame = () => {
 	return underScores;
 }
 
-// Get users guess; https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
+// Get users guess
 document.addEventListener('keypress', (event) => {
 	var letter = String.fromCharCode(event.keyCode);
+	//  If incorrect
+	if (activeWord.indexOf(letter) === -1) {
+		attemptsLeft --;
+	}
 	// If user is correct
-	if(activeWord.indexOf(letter) > -1) {
-	// add to correctWord
-		correctWord.push(letter);
-	// replace underscore with letter	
-		underScores[activeWord.indexOf(letter)] = letter;
-		pageUnderscores[0].innerHTML = underScores.join(" ");
-		pageWins[0].innerHTML = correctWord;
-	// Check if letter matches guesses
+	
+	for (var i = 0; i < activeWord.length; i++) {
+	  if(activeWord.charAt(i) == letter) {
+			correctWord.push(letter);
+      underScores[i] = letter;
+    }
+	} 		
+
+  pageUnderscores[0].innerHTML = underScores.join(" ");
+	pageWins[0].innerHTML = correctWord;
+	
+	// If all letters are filled
 		if(underScores.join("") == activeWord) {
-			prompt('you win!');
+			setTimeout(function(){ 
+				alert("you win"); 
+				resetGame();
+			}, 1000);
+		}
+		else {
+			wrongWord.push(letter);
+			pageLosses[0].innerHTML = wrongWord;
+		};
+
+		if(attemptsLeft === 0) {
+			alert("You Loose!!")
 			resetGame();
 		}
-	}
-	else {
-		wrongWord.push(letter);
-		pageLosses[0].innerHTML = wrongWord;
-}
 });
 
  pageUnderscores[0].innerHTML = newGame().join("");
 
- function message() {
-	document.getElementById("message").innerHTML = "Press any key to continue."
-}
 
 function resetGame() {
-   underScores = [];
-   correctWord = [];
-   wrongWord = [];
-   attemptsLeft = 12;
-   newGame();
-
+  underScores = [];
+  correctWord = [];
+  wrongWord = [];
+  attemptsLeft = 12;
+  newGame();
 };
-
- 
-
-
-
