@@ -17,26 +17,33 @@ var correctWord = [];
 var wrongWord = [];
 var wins = 0;
 var losses = 0;
-var attemptsLeft = 12;
+var counter = 12;
 
 var pageUnderscores = document.getElementsByClassName("underscore");
 var pageWins = document.getElementsByClassName("rightLetters");
 var pageLosses = document.getElementsByClassName("wrongLetters");
 
+document.getElementById("wins").innerHTML = wins;
+document.getElementById("losses").innerHTML = losses;
+document.getElementById("counter").innerHTML = counter;
+
+
 var newGame = () => {
 	for (var i = 0; i < activeWord.length; i++) {
-		underScores.push("_");
+		underScores.push(" _ ");
 	}
 	return underScores;
 }
-
 // Get users guess
 document.addEventListener('keypress', (event) => {
 	var letter = String.fromCharCode(event.keyCode);
+	if (event.keyCode >= 48 && event.keyCode <= 57) ;
+	
 	//  If incorrect
 	if (activeWord.indexOf(letter) === -1) {
-		attemptsLeft --;
+		counter--;
 	}
+	document.getElementById("counter").innerHTML = counter;
 	// If user is correct
 	
 	for (var i = 0; i < activeWord.length; i++) {
@@ -52,8 +59,11 @@ document.addEventListener('keypress', (event) => {
 	// If all letters are filled
 		if(underScores.join("") == activeWord) {
 			setTimeout(function(){ 
-				alert("you win"); 
-				resetGame();
+				document.getElementById("alert").innerHTML = "You Won!!";
+				// document.getElementById("earth").innerHTML = '<div style="height: 1000px background-image: url(https://www.nasa.gov/sites/default/files/images/115334main_image_feature_329_ys_full.jpg)">earth</div>';
+				wins++;
+				 document.getElementById("wins").innerHTML = wins ++; 
+				 resetGame();
 			}, 1000);
 		}
 		else {
@@ -61,19 +71,23 @@ document.addEventListener('keypress', (event) => {
 			pageLosses[0].innerHTML = wrongWord;
 		};
 
-		if(attemptsLeft === 0) {
-			alert("You Loose!!")
-			resetGame();
+		if(counter === 0) {
+			document.getElementById("alert").innerHTML = "You Loss!!";
+			losses++;
+			 document.getElementById("losses").innerHTML = losses ++;
+			 resetGame();
 		}
 });
 
  pageUnderscores[0].innerHTML = newGame().join("");
 
 
+
+
 function resetGame() {
   underScores = [];
   correctWord = [];
   wrongWord = [];
-  attemptsLeft = 12;
+  counter = 12;
   newGame();
 };

@@ -13,21 +13,23 @@
 		<!-- Add Globe Animation -->
 			<h2>Press any key to get started!</h2>
 		</header>
-		<div class="underscore"></div>
-		<p>Correct Letters</p>
-		<div class="rightLetters"></div>
-		<p>Incorrect Letters</p>
-		<div class="wrongLetters"></div>
-
-        <p>Wins:</p> <span id="wins"></span>
-        <p>Losses:</p> <span id="losses"></span>
-     
+		<div class="underscore jumbotron"></div>
+		<div class="panel panel-default">
+			<p>Correct Letters</p>
+			<div class="rightLetters"></div>
+			<p>Incorrect Letters</p>
+			<div class="wrongLetters"></div>
+	        <p>Wins:</p> <span id="wins"></span>
+	        <p>Losses:</p> <span id="losses"></span>
+	     	<p>Attempts Left: </p> <span id="counter"></span>
+     	</div>
+		<div class="message"><span id="alert"></span></div>
     </div>
-	</div>
-
-
-
 </body>
+
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+</video>
 
 	<script src="assets/javascript/game.js"></script>
 
