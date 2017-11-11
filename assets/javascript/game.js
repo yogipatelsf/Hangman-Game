@@ -37,13 +37,17 @@ var newGame = () => {
 // Get users guess
 document.addEventListener('keypress', (event) => {
 	var letter = String.fromCharCode(event.keyCode);
-	if (event.keyCode >= 48 && event.keyCode <= 57) ;
+	if (event.keyCode >= 48 && event.keyCode <= 57) return;
+	if (event.keyCode >= 65 && event.keyCode <= 90) return;
+
 	
 	//  If incorrect
 	if (activeWord.indexOf(letter) === -1) {
 		counter--;
+		// need to add logic if same letter keyed, don't add to counter; ned to add alphabet array
 	}
 	document.getElementById("counter").innerHTML = counter;
+	document.getElementById("alert").innerHTML = [];
 	// If user is correct
 	
 	for (var i = 0; i < activeWord.length; i++) {
@@ -64,6 +68,7 @@ document.addEventListener('keypress', (event) => {
 				wins++;
 				 document.getElementById("wins").innerHTML = wins ++; 
 				 resetGame();
+				 newGame();
 			}, 1000);
 		}
 		else {
@@ -72,22 +77,20 @@ document.addEventListener('keypress', (event) => {
 		};
 
 		if(counter === 0) {
-			document.getElementById("alert").innerHTML = "You Loss!!";
+			document.getElementById("alert").innerHTML = "You Loss!";
 			losses++;
 			 document.getElementById("losses").innerHTML = losses ++;
 			 resetGame();
+			 newGame();
 		}
 });
 
- pageUnderscores[0].innerHTML = newGame().join("");
-
-
-
+ pageUnderscores[0].innerHTML = newGame().join(" ");
 
 function resetGame() {
-  underScores = [];
   correctWord = [];
   wrongWord = [];
   counter = 12;
-  newGame();
+  underScores = [];
 };
+
